@@ -70,7 +70,7 @@ def main():
                     "created_at": datetime.now()
                 }
 
-                collection.insert_one(news_obj)
+                collection.insert_one(news_data)
                 print(f"成功新增: [{final_score}] {title[:30]}...")
                 time.sleep(1) 
 
