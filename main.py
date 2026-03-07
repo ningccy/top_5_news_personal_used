@@ -7,10 +7,8 @@ import time
 import os
 import certifi
 
-# 1. 從環境變數讀取 URI
 MONGO_URI = os.getenv("MONGO_URI")
 
-# 2. 初始化 MongoDB
 client = pymongo.MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 db = client.finance_robot
 collection = db.articles
