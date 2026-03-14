@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 
 st.set_page_config(
     page_title=" 美股新聞精選 ", 
-    page_icon="💰", 
     layout="wide"
 )
 
