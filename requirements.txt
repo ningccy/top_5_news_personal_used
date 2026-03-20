@@ -1,5 +1,6 @@
 streamlit
 fastapi
+pymongo
 uvicorn
 requests
 pandas
