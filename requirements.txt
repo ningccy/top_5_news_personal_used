@@ -1,9 +1,12 @@
 streamlit
 fastapi
-pymongo
 uvicorn
 requests
 pandas
 yfinance
-curl_cffi
 plotly
+sqlalchemy
+pymysql
+pymongo
+yfinance
+pandas
