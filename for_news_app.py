@@ -40,8 +40,8 @@ st.markdown(f"** The Time is：** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 time_threshold = datetime.now() - timedelta(days=days)
 
-query = {"created_at": {"$gte": time_threshold}}
-top_news = list(collection.find(query).sort("importance_score", -1).limit(limit_count))
+# query = {"created_at": {"$gte": time_threshold}}
+top_news = list(collection.find().sort("importance_score", -1).limit(limit_count))
 
 if not top_news:
     st.warning("There are currently no news articles matching in the DB. Please check if the robot is functioning correctly.")
