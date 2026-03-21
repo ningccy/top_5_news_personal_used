@@ -8,3 +8,7 @@ sqlalchemy
 pymysql
 pymongo
 yfinance
+certifi
+feedparser
+newspaper3k
+textblob
