@@ -1,3 +1,6 @@
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
 import feedparser
 from newspaper import Article
 from textblob import TextBlob
