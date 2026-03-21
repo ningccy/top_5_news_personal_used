@@ -3,10 +3,8 @@ fastapi
 uvicorn
 requests
 pandas
-yfinance
 plotly
 sqlalchemy
 pymysql
 pymongo
 yfinance
-pandas
