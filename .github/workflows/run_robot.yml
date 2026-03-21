@@ -26,5 +26,7 @@ jobs:
 
       - name: Run Crawler
         env:
-          MONGO_URI: ${{ secrets.MONGO_URI }} # 這裡會去讀取你設定的 Secret
-        run: python top_5_news_main.py
+          MONGO_URI: ${{ secrets.MONGO_URI }} 
+        run: |
+          python -m pip install feedparser newspaper3k textblob pymongo certifi nltk
+          python top_5_news_main.py
