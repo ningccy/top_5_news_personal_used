@@ -10,14 +10,19 @@ st.set_page_config(
 
 @st.cache_resource
 def init_connection():
-    return pymongo.MongoClient(st.secrets["MONGO_URI"], tlsCAFile=certifi.where())
-
-try:
-    client = init_connection()
-    db = client.finance_robot  # 資料庫名稱
-    collection = db.articles   # 集合名稱
-except Exception as e:
-    st.error(f"connect to DB is faild: {e}")
+    try:
+        uri = st.secrets["MONGO_URI"]
+        return pymongo.MongoClient(st.secrets["MONGO_URI"], tlsCAFile=certifi.where())
+    except Exception as e :
+        st.error(f"無法讀取連線字串或連線失敗: {e}")
+        return None
+client = init_connection()
+if client:
+    db = client.finance_robot
+    collection = db.articles
+else:
+    st.warning("streamlit中沒有連線至mongo_uri，請設置")
+    st.stop()
 
 with st.sidebar:
     st.title("控制面板")
