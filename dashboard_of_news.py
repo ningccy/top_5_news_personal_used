@@ -139,3 +139,6 @@ def show_news_dashboard():
         st.error(f"讀取失敗：{e}")
     finally:
         db.close()
+
+if __name__ == "__main__":
+    show_news_dashboard()
