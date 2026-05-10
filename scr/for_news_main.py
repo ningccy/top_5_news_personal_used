@@ -12,7 +12,7 @@ DB_USER = "2wGDHtMmwyuDx8w.root"
 DB_PASSWORD = "cShHe1LJtolQ9zoI"
 DB_HOST = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com"
 DB_PORT = "4000"
-DB_NAME = "sys"
+DB_NAME = "test"
 
 DATABASE_URL = (
     f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@"
