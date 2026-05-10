@@ -7,7 +7,7 @@ import pandas as pd
 import sys
 import os
 
-st.set_page_config(page_title="經濟健康度儀表板", layout="wide")
+st.set_page_config(page_title="what's new", layout="wide")
 Base = declarative_base()
 
 try:
@@ -15,11 +15,11 @@ try:
         db_config = st.secrets["mysql"]
     else:
         db_config = {
-            "user": "4RyYfQMvnH9DmYu.root",
-            "password": "XD2WuF9AcDymVeCt",
+            "user": "2wGDHtMmwyuDx8w.root",
+            "password": "cShHe1LJtolQ9zoI",
             "host": "gateway01.ap-northeast-1.prod.aws.tidbcloud.com",
             "port": "4000",
-            "database": "macro_monitor_1"
+            "database": "sys"
         }
     DATABASE_URL = (
         f"mysql+pymysql://{db_config['user']}:{db_config['password']}@"
