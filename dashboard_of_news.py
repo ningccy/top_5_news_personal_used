@@ -108,9 +108,9 @@ def show_news_dashboard():
             .filter(NewsArticle.created_at >= time_threshold) \
             .order_by(desc(NewsArticle.importance_score)) \
             .limit(limit).all()
-    
+
         if not top_news:
-            st.warning("尚無新聞資料，請點擊左側「💡立即抓取」按鈕。")
+            st.warning("無符合條件的新聞資料，請點擊左側「💡立即抓取」按鈕。")
         else:
             for news in top_news:
                 with st.container():
@@ -119,7 +119,7 @@ def show_news_dashboard():
                     with col_score:
                         imp = news.importance_score if news.importance_score is not None else 0.0
                         fb = news.sentiment_score if news.sentiment_score is not None else 0.5
-                        tb = getattr(news, 'sentiment_textblob', 0.5) or 0.5
+                        tb = news.sentiment_textblob if news.sentiment_textblob is not None else 0.5
                         
                         st.metric("重要性", f"{imp:.2f}")
                         st.write(f"📖 **Fin:** `{fb:.2f}`")
@@ -135,10 +135,12 @@ def show_news_dashboard():
                             elif fb < 0.4: st.error("市場情緒: Bearish")
                             else: st.info("市場情緒: Neutral")
                     st.divider() 
+                    
     except Exception as e:
-        st.error(f"讀取失敗：{e}")
+        st.error(f"讀取資料庫失敗：{e}")
     finally:
         db.close()
 
+# --- 啟動入口 ---
 if __name__ == "__main__":
     show_news_dashboard()
