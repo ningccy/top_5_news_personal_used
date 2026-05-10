@@ -19,7 +19,7 @@ try:
             "password": "cShHe1LJtolQ9zoI",
             "host": "gateway01.ap-northeast-1.prod.aws.tidbcloud.com",
             "port": "4000",
-            "database": "sys"
+            "database": "test"
         }
     DATABASE_URL = (
         f"mysql+pymysql://{db_config['user']}:{db_config['password']}@"
