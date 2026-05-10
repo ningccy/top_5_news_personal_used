@@ -8,11 +8,11 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 import torch
 from transformers import pipeline, BertTokenizer, BertForSequenceClassification
 
-DB_USER = "4RyYfQMvnH9DmYu.root"
-DB_PASSWORD = "XD2WuF9AcDymVeCt"
+DB_USER = "2wGDHtMmwyuDx8w.root"
+DB_PASSWORD = "cShHe1LJtolQ9zoI"
 DB_HOST = "gateway01.ap-northeast-1.prod.aws.tidbcloud.com"
 DB_PORT = "4000"
-DB_NAME = "macro_monitor_1"
+DB_NAME = "sys"
 
 DATABASE_URL = (
     f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@"
@@ -78,7 +78,7 @@ def get_sentiment(text):
 
 def calculate_importance(content, sentiment_score):
     if not content: content = ""
-    sentiment_intensity = abs(sentiment_score - 0.5) * 2 #情緒強度（偏離中立點的距離）
+    sentiment_intensity = abs(sentiment_score - 0.5) * 2 
     keywords = ['fed','surge','rally','ATH','outperform','plunge','plummet','sell-out','slide','dip','guidance','bullish','bearish','blue-chip','ipo','hawkish','dovish','fomc','YTD','YoY','QoQ','inflation','rate cut','earnings','nasdaq','s&p 500','DJIA','QQQ','apple','meta','google','nvidia']
     hit_count = sum(1 for word in keywords if word in content.lower())
     kw_score = min(hit_count / 3, 1.0)
